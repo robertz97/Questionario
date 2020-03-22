@@ -1,0 +1,70 @@
+*{
+				font-family: 'Open Sans', sans-serif;
+			}
+			
+			.rdP1, .rdP2, .rdP3, .rdP4, .rdP5, .rdP6, .rdP7, .rdP8{
+				vertical-align:middle;
+				outline:none;
+				width:15px;
+				height:15px;
+				cursor:pointer;
+			}
+			
+			.titulo{
+				color:#103e6b;
+				font-weight:bold;
+			}
+			
+			.button{
+				padding:5px;
+				border:none;
+				outline: none;
+				color:#FFF;
+				font-size:16px;
+				cursor:pointer;
+				background-color: #1E90FF;
+			}
+			
+			.button:hover{
+				background-color:orange;
+			}
+			
+			#verde, #vermelho, #cinza{
+				width:20px;
+				height:20px;
+				margin:5px;
+				vertical-align: middle;
+				float:left;
+			}
+			
+			#verde{
+				background-color: #20B2AA;
+			}
+			
+			#vermelho{
+				background-color: #F08080;
+			}
+			
+			#cinza{
+				background-color: #B0C4DE;
+			}
+			
+			#acertos{
+			
+			}
+			
+			#erros{
+			
+			}
+			
+			.resultado{
+				display:none;
+			}
+			
+			.clear{
+				clear:both;
+			}
+			h1{color: black}
+
+			body{
+			background-color: grey }

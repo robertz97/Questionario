@@ -1,0 +1,133 @@
+function () {
+const myQuestions = [ 
+{
+question: "Gestão de pessoas é a função na organização que está relacionada com provisão, treinamento, desenvolvimento, motivação e manutenção dos clientes da empresa.",
+
+answer: {
+a: "Certo"
+b: "Errado"
+},
+correctAnswer: "a"
+},
+{
+question: "Poder de comandar outros, para que executem ou deixem de executar algo, da maneira considerada pelo possuidor dessa autoridade, como adequada para a realização dos objetivos da empresa ou do órgão. Essa é a definição de:"
+
+answer: {
+a: "Responsabilidade"
+b: "Coordenação"
+c: "Autoridade"
+d: "Poder"
+e: "Delegação"
+
+},
+correctAnswer: "e"
+},
+{
+question: "Escolha a opção que corretamente se refere à liderança em seu aspecto."
+
+answer: {
+a: "Capacidade de influenciar o comportamento das pessoas."
+b: "Todo servidor que está em posição de gestor é um líder."
+c: "Esforço ou ação do indivíduo que influencia no seu próprio desempenho."
+d: "Conjunto de razões internas que estimulam um comportamento específico."
+e: "Indivíduo que demonstra conhecimentos absolutos presentes na função gerencial."
+
+},
+correctAnswer: "a"
+},
+{
+question: "Com relação às funções básicas da administração, julgue o item.
+
+o balanced scorecard é uma metodologia de gestão que pode ser utilizada para medir o desempenho de uma empresa."
+
+answer: {
+a: "Certo"
+b: "Errado"
+
+},
+correctAnswer: "a"
+},
+{
+question: "Para um bom relacionamento interpessoal no trabalho, o funcionário deve fazer uso de diferentes habilidades. Análise a seguinte situação.
+
+Em uma reunião, após a explanação das metas estabelecidas pela empresa, Gustavo, um recém-contratado, acompanhou atenciosamente a explanação de seu supervisor e, após a abertura para as considerações de todos, postou-se à frente da equipe e apresentou suas considerações. Com muita clareza e objetividade, expôs o que julgou ser positivo ou negativo. Mesmo não concordando com alguns pontos levantados pela supervisão, discutiu e apresentou suas propostas.
+
+A atitude de Gustavo diante da reunião demonstrou uma habilidade de relacionamento com:"
+
+answer: {
+a: "Assertividade"
+b: "Autoconhecimento"
+c: "Cordialidade"
+d: "Criatividade"
+e: "Empatia"
+
+},
+correctAnswer: "c"
+}
+];
+function buildQuiz() {
+
+;//local para armazenar a saída HTML 
+
+const output = []; 
+
+// Percorre cada pergunta... 
+
+myQuestions.forEach((currentQuestion, questionNumber) =; 
+{ 
+
+//armazenar a lista de opções de resposta 
+
+const answers = []; 
+
+// para cada resposta disponível... 
+
+for (letter in currentQuestion.answers) {
+
+// ...adiciona um radio button
+
+answers.push( `;label; ;input type="radio" name="question${questionNumber}" value="${letter}"; ${letter} : ${currentQuestion.answers[letter]} ;/label;` ); } 
+
+// adiciona as questões e suas respostas na saída
+
+output.push(
+;`;div class="slide"; ;div class="question"; ${currentQuestion.question} ;/div; ;div class="answers"; ${answers.join("")} ;/div; ;/div;` ); }); 
+
+// lista de saída em uma string de HTML para colocar na página 
+
+quizContainer.innerHTML = output.join(""); }
+
+function showResults() { 
+
+// reune recipientes de respostas do nosso questionário 
+
+const answerContainers = quizContainer.querySelectorAll(".answers"); 
+
+// acompanha as respostas do usuário 
+
+let numCorrect = 0; 
+
+// para cada pergunta...
+
+myQuestions.forEach((currentQuestion, questionNumber) =; { 
+
+// encontra a resposta selecionada 
+
+const answerContainer = answerContainers[questionNumber];
+
+const selector = `input[name=question${questionNumber}]:checked`; const userAnswer = (answerContainer.querySelector(selector) || {}).value; 
+
+// Se a resposta está correta if (userAnswer === currentQuestion.correctAnswer) { 
+
+// Conta o número de respostas corretas numCorrect++; 
+
+// colore as respostas com verde
+
+answerContainers[questionNumber].style.color = "green"; } else { 
+
+// se a resposta estiver errada ou vazia 
+
+// colore as respostas com vermelho
+;answerContainers[questionNumber].style.color = "red"; } }); 
+
+// mostra o número de respostas corretas no total totalContainer.innerHTML = `Acertou ${numCorrect} de ${myQuestions.length}`;
